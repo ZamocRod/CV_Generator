@@ -75,11 +75,9 @@ const createCvHtml = async (data) => {
       return "";
     }
     return `
-            <section class="cv-seccion">
-                <h3>${title}</h3>
-                ${items.map(renderItem).join("")}
-            </section>
-        `;
+<section class="cv-seccion"> <h3>${title}</h3> ${items.map(renderItem).join("")}
+</section>
+`;
   };
 
   template = template.replace(
@@ -88,19 +86,17 @@ const createCvHtml = async (data) => {
       "Experiencia Profesional",
       data.experiencia,
       (exp) => `
-        <div class="cv-item">
-            <h4><strong>${exp.puesto}</strong> | ${exp.empresa}</h4>
-            <h5>${exp.fecha}</h5>
-            <ul>${exp.descripcion
+<div class="cv-item">
+<h4><strong>${exp.puesto}</strong> | ${exp.empresa}</h4>
+<h5>${exp.fecha}</h5>
+<ul>${exp.descripcion
         .split("\n")
         .filter((l) => l)
         .map((l) => `<li>${l}</li>`)
         .join("")}</ul>
-            ${
-        exp.detalles ? `<span class="detalles">${exp.detalles}</span>` : ""
-      }
-        </div>
-    `
+${exp.detalles ? `<span class="detalles">${exp.detalles}</span>` : ""}
+</div>
+ `
     )
   );
 
@@ -110,13 +106,13 @@ const createCvHtml = async (data) => {
       "Proyectos Personales",
       data.proyectos,
       (pro) => `
-        <div class="cv-item">
-             <h4><strong>${pro.nombre}</strong> ${
+ <div class="cv-item">
+<h4><strong>${pro.nombre}</strong> ${
         pro.link ? `| <a href="${pro.link}">Ver Proyecto</a>` : ""
       }</h4>
-             <p>${pro.descripcion.replace(/\n/g, "<br>")}</p>
-        </div>
-    `
+<p>${pro.descripcion.replace(/\n/g, "<br>")}</p>
+ </div>
+ `
     )
   );
 
@@ -126,11 +122,11 @@ const createCvHtml = async (data) => {
       "Educación",
       data.educacion,
       (edu) => `
-        <div class="cv-item">
-            <h4><strong>${edu.titulo}</strong> | ${edu.institucion}</h4>
-            <h5>${edu.fecha}</h5>
-        </div>
-    `
+ <div class="cv-item">
+ <h4><strong>${edu.titulo}</strong> | ${edu.institucion}</h4>
+ <h5>${edu.fecha}</h5>
+ </div>
+ `
     )
   ); // --- AÑADIDO: Sección de Cursos ---
 
@@ -140,11 +136,11 @@ const createCvHtml = async (data) => {
       "Cursos y Certificaciones",
       data.cursos,
       (curso) => `
-        <div class="cv-item">
-            <h4><strong>${curso.titulo}</strong> | ${curso.institucion}</h4>
-            <h5>${curso.fecha}</h5>
-        </div>
-    `
+ <div class="cv-item">
+<h4><strong>${curso.titulo}</strong> | ${curso.institucion}</h4>
+ <h5>${curso.fecha}</h5>
+ </div>
+ `
     )
   );
 
