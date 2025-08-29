@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import "./App.css";
 
 // --- Iconos SVG para una mejor UI ---
 const PlusIcon = () => (
@@ -87,7 +88,7 @@ const CVPreview = ({ data }) => {
   return (
     <div
       id="cv-container"
-      className="bg-white w-[210mm] min-h-[297mm] p-[20mm] shadow-lg text-[#333] font-sans text-sm leading-relaxed"
+      className="bg-white w-[210mm] min-h-[297mm] p-[20mm] shadow-lg text-[#333] font-sans text-sm leading-relaxed sheet"
     >
       <header className="text-center border-b-2 border-gray-200 pb-2.5 mb-5">
         <h1 className="text-3xl font-bold tracking-wider uppercase">
@@ -707,7 +708,7 @@ export default function App() {
           </button>
         </div>
       </div>
-      <div className="flex-1 p-10 bg-gray-100 flex justify-center">
+      <div className="flex-1 p-10 bg-gray-100 flex justify-center viewport">
         <CVPreview data={currentCvData} />
       </div>
     </div>
